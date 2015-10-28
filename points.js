@@ -104,4 +104,8 @@ function process(diam, unit)
     var pixelPerMM = screen.height / hoehe;
 
     size = new Float32Array([pixelPerMM, pixelPerMM]);
+
+    var unitPerPixel = 2.0 / document.getElementById("gl-canvas").width;
+
+    vertices.set(new Float32Array([(vertices[0] + ((3 * pixelPerMM) * unitPerPixel))]), 2);
 }

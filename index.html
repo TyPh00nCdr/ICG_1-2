@@ -17,7 +17,7 @@
 				gl_PointSize = vSize;
 				gl_Position = vPosition;
 			}
-		</script>
+    </script>
     <script id="fragment-shader" type="x-shader/x-fragment">
 			precision mediump float;
 			
@@ -26,7 +26,7 @@
 			{
 				gl_FragColor = fColor;
 			}
-		</script>
+    </script>
 
     <script type="text/javascript" src="./Common/webgl-utils.js">
     </script>
@@ -39,11 +39,12 @@
 <h1 id="h1-head">Lorem Ipsum</h1>
 
 <form>
-	Bildschirm-Diagonale:<br>
-	<input type="text" name="diam" id="size">
-	<input type="radio" name="unit" value="Zoll" checked> Zoll
-	<input type="radio" name="unit" value="cm"> cm<br>
-	<input type="submit" value="OK">
+    Bildschirm-Diagonale:<br>
+    <input type="text" name="diam" id="size" value="Float: z.B. 15.5"
+           onfocus="if (this.value=='Float: z.B. 15.5') this.value='';">
+    <input type="radio" name="unit" value="Zoll" checked> Zoll
+    <input type="radio" name="unit" value="cm"> cm<br>
+    <input type="submit" value="OK">
 </form>
 
 
