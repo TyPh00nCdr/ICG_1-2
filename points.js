@@ -8,7 +8,8 @@ var gl;
 var vertices = new Float32Array([-0.5, 0,
                                   0.5, 0]);
 
-var size = new Float32Array([10.0]);
+var size = new Float32Array([64.0,
+                             64.0]);
 
 window.onload = function init()
 {
@@ -22,6 +23,15 @@ window.onload = function init()
 
     var colors = new Float32Array([ 1, 0, 0, 1,
                                     0, 0, 1, 1]);
+
+    if ("".localeCompare(location.search) != 0)
+    {
+        var info = location.search.split("&");
+        info[0] = info[0].substring(6);
+        info[1] = info[1].substring(5);
+
+        process(info[0], info[1]);
+    }
 
     // Configure viewport
 
@@ -66,8 +76,6 @@ window.onload = function init()
     gl.vertexAttribPointer(vSize, 1, gl.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(vSize);
 
-    alert("Color var: " + vColor + " | Pos var: " + vPosition + " | Size var: " + vSize);
-
     render();
 };
 
@@ -77,23 +85,23 @@ function render()
     gl.drawArrays(gl.POINTS, 0, 2);
 }
 
-function process()
+function process(diam, unit)
 {
-    var size = document.getElementById("size").value;
-    var unit = document.getElementById("unit").value;
     var ratio = screen.width / screen.height;
 
     if (unit.localeCompare("Zoll") == 0)
     {
-        size *= 25.4;
+        diam *= 25.4;
     }
     else
     {
-        size *= 10.0;
+        diam *= 10.0;
     }
 
-    var hoehe = (size) / Math.sqrt(Math.pow(ratio, 2) + 1.0);
+    var hoehe = (diam) / Math.sqrt(Math.pow(ratio, 2) + 1.0);
     // var breite = hoehe * ratio;
 
     var pixelPerMM = screen.height / hoehe;
+
+    size = new Float32Array([pixelPerMM, pixelPerMM]);
 }

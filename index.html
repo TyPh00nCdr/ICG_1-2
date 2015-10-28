@@ -38,13 +38,11 @@
 <body>
 <h1 id="h1-head">Lorem Ipsum</h1>
 
-<form method="post" onsubmit="process()">
+<form>
 	Bildschirm-Diagonale:<br>
-	<input type="text" id="size">
-	<select id="unit"><br>
-		<option value="Zoll">Zoll</option>
-		<option value="cm">cm</option>
-	</select>
+	<input type="text" name="diam" id="size">
+	<input type="radio" name="unit" value="Zoll" checked> Zoll
+	<input type="radio" name="unit" value="cm"> cm<br>
 	<input type="submit" value="OK">
 </form>
 
