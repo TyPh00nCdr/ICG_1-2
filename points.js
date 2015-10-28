@@ -107,5 +107,5 @@ function process(diam, unit)
 
     var unitPerPixel = 2.0 / document.getElementById("gl-canvas").width;
 
-    vertices.set(new Float32Array([(vertices[0] + ((3 * pixelPerMM) * unitPerPixel))]), 2);
+    vertices.set(new Float32Array([(vertices[0] + ((2 * pixelPerMM) * unitPerPixel))]), 2);
 }
